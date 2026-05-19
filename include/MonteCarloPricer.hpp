@@ -12,7 +12,13 @@ private:
 public:
     MonteCarloPricer(int _numSimulations, int _numTimeSteps);
     
+    // Core pricing function
     double price(const Option& option, const MarketEnvironment& env) const;
+
+    // Risk Metrics (The Greeks) calculated via Finite Difference Methods
+    double calculateDelta(const Option& option, const MarketEnvironment& env) const;
+    double calculateGamma(const Option& option, const MarketEnvironment& env) const;
+    double calculateVega(const Option& option, const MarketEnvironment& env) const;
 };
 
 #endif
